@@ -1,0 +1,48 @@
+- name: Add Host to ACI dVS - MSSQL
+  when: item.cluster == 'WDMMSSQL-Cluster'
+  vmware_dvs_host:
+    hostname: "{{ vcenter }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    switch_name: "{{ aci_dvswitch }}"
+    vmnics:
+        - vmnic10
+        - vmnic11
+    state: present
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost
+- name: Add Host to ACI dVS - Apps
+  when: item.cluster == 'WDMApps-Cluster'
+  vmware_dvs_host:
+    hostname: "{{ vcenter }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    switch_name: "{{ aci_dvswitch }}"
+    vmnics:
+        - vmnic9
+        - vmnic11
+    state: present
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost
+- name: Add Host to ACI dVS - ChasApps
+  when: item.cluster == 'ChasApps-Cluster'
+  vmware_dvs_host:
+    hostname: "{{ vcenter }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    switch_name: "{{ chas_aci_dvswitch }}"
+    vmnics:
+        - vmnic4
+        - vmnic5
+    state: present
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost

@@ -1,0 +1,2 @@
+- name: Add Hosts to vCenter
+  import_tasks: add_hosts.yml

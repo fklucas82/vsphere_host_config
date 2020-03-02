@@ -1,0 +1,2 @@
+- name: Set Management VMKernel Adapter
+  import_tasks: mgmt_vmkernel.yml

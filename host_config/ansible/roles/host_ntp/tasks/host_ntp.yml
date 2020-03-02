@@ -1,0 +1,12 @@
+- name: Configure NTP servers for an ESXi Host
+  vmware_host_ntp:
+    hostname: "{{ vcenter }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    ntp_servers:
+        - time.hy-vee.com
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost

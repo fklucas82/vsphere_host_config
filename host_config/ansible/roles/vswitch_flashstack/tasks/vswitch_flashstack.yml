@@ -1,0 +1,44 @@
+- name: Configure vSwitch0 NICs and MTU
+  when: item.cluster == 'WDMApps-Cluster' or item.cluster == 'WDMMSSQL-Cluster' or item.cluster == 'ChasApps-Cluster'
+  vmware_vswitch:
+    hostname: "{{ vcenter }}"
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    switch: "{{ flashstack_vswitch }}"
+    nics:
+    - vmnic0
+    - vmnic1
+    mtu: 1500
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost
+- name: Add Management Network VM Portgroup - CORP
+  when: item.cluster == 'WDMApps-Cluster' or item.cluster == 'WDMMSSQL-Cluster' 
+  vmware_portgroup:
+    hostname: "{{ vcenter }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    hosts: "{{ item.esxi_hostname }}.{{ domainname }}"
+    switch: "{{ flashstack_vswitch }}"
+    portgroup: "{{ portgroup_mgmt }}"
+    vlan_id: "{{ mgmt_vlan }}"
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost
+- name: Add Management Network VM Portgroup - CHAS
+  when: item.cluster == 'ChasApps-Cluster'
+  vmware_portgroup:
+    hostname: "{{ vcenter }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    hosts: "{{ item.esxi_hostname }}.{{ domainname }}"
+    switch: "{{ flashstack_vswitch }}"
+    portgroup: "{{ portgroup_mgmt }}"
+    vlan_id: "{{ chas_mgmt_vlan }}"
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost

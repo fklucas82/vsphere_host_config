@@ -1,0 +1,71 @@
+vars_hosts:
+    # #-WDMApps-Cluster Hosts
+    # - { esxi_hostname: 'pwdmesxhst01', datacenter: 'Corporate', cluster: 'WDMApps-Cluster', mgmtip: '10.200.19.50', vmotionip: '10.200.87.50', iscsi_101_1_ip: '192.168.101.6', iscsi_101_2_ip: '192.168.101.56', iscsi_102_1_ip: '192.168.102.6', iscsi_102_2_ip: '192.168.102.56' }
+    # - { esxi_hostname: 'pwdmesxhst02', datacenter: 'Corporate', cluster: 'WDMApps-Cluster', mgmtip: '10.200.19.51', vmotionip: '10.200.87.51', iscsi_101_1_ip: '192.168.101.7', iscsi_101_2_ip: '192.168.101.57', iscsi_102_1_ip: '192.168.102.7', iscsi_102_2_ip: '192.168.102.57' }
+    # - { esxi_hostname: 'pwdmesxhst03', datacenter: 'Corporate', cluster: 'WDMApps-Cluster', mgmtip: '10.200.19.52', vmotionip: '10.200.87.52', iscsi_101_1_ip: '192.168.101.8', iscsi_101_2_ip: '192.168.101.58', iscsi_102_1_ip: '192.168.102.8', iscsi_102_2_ip: '192.168.102.58' }
+    # - { esxi_hostname: 'pwdmesxhst04', datacenter: 'Corporate', cluster: 'WDMApps-Cluster', mgmtip: '10.200.19.53', vmotionip: '10.200.87.53', iscsi_101_1_ip: '192.168.101.9', iscsi_101_2_ip: '192.168.101.59', iscsi_102_1_ip: '192.168.102.9', iscsi_102_2_ip: '192.168.102.59' }
+    # - { esxi_hostname: 'pwdmesxhst05', datacenter: 'Corporate', cluster: 'WDMApps-Cluster', mgmtip: '10.200.19.54', vmotionip: '10.200.87.54', iscsi_101_1_ip: '192.168.101.10', iscsi_101_2_ip: '192.168.101.60', iscsi_102_1_ip: '192.168.102.10', iscsi_102_2_ip: '192.168.102.60' }
+    # - { esxi_hostname: 'pwdmesxhst06', datacenter: 'Corporate', cluster: 'WDMApps-Cluster', mgmtip: '10.200.19.55', vmotionip: '10.200.87.55', iscsi_101_1_ip: '192.168.101.11', iscsi_101_2_ip: '192.168.101.61', iscsi_102_1_ip: '192.168.102.11', iscsi_102_2_ip: '192.168.102.61' }
+    # - { esxi_hostname: 'pwdmesxhst07', datacenter: 'Corporate', cluster: 'WDMApps-Cluster', mgmtip: '10.200.19.56', vmotionip: '10.200.87.56', iscsi_101_1_ip: '192.168.101.12', iscsi_101_2_ip: '192.168.101.62', iscsi_102_1_ip: '192.168.102.12', iscsi_102_2_ip: '192.168.102.62' }
+    # # -WDMMSSQL-Cluster Hosts
+    - { esxi_hostname: 'pwdmesxsql01', datacenter: 'Corporate', cluster: 'WDMMSSQL-Cluster', mgmtip: '10.200.19.70', vmotionip: '10.200.87.70', iscsi_101_1_ip: '192.168.101.30', iscsi_101_2_ip: '192.168.101.80', iscsi_102_1_ip: '192.168.102.30', iscsi_102_2_ip: '192.168.102.80' }
+    - { esxi_hostname: 'pwdmesxsql02', datacenter: 'Corporate', cluster: 'WDMMSSQL-Cluster', mgmtip: '10.200.19.71', vmotionip: '10.200.87.71', iscsi_101_1_ip: '192.168.101.31', iscsi_101_2_ip: '192.168.101.81', iscsi_102_1_ip: '192.168.102.31', iscsi_102_2_ip: '192.168.102.81' }
+    - { esxi_hostname: 'pwdmesxsql03', datacenter: 'Corporate', cluster: 'WDMMSSQL-Cluster', mgmtip: '10.200.19.72', vmotionip: '10.200.87.72', iscsi_101_1_ip: '192.168.101.32', iscsi_101_2_ip: '192.168.101.82', iscsi_102_1_ip: '192.168.102.32', iscsi_102_2_ip: '192.168.102.82' }
+    - { esxi_hostname: 'pwdmesxsql04', datacenter: 'Corporate', cluster: 'WDMMSSQL-Cluster', mgmtip: '10.200.19.73', vmotionip: '10.200.87.73', iscsi_101_1_ip: '192.168.101.33', iscsi_101_2_ip: '192.168.101.83', iscsi_102_1_ip: '192.168.102.33', iscsi_102_2_ip: '192.168.102.83' }
+    - { esxi_hostname: 'pwdmesxsql05', datacenter: 'Corporate', cluster: 'WDMMSSQL-Cluster', mgmtip: '10.200.19.74', vmotionip: '10.200.87.74', iscsi_101_1_ip: '192.168.101.34', iscsi_101_2_ip: '192.168.101.84', iscsi_102_1_ip: '192.168.102.34', iscsi_102_2_ip: '192.168.102.84' }
+    - { esxi_hostname: 'pwdmesxsql06', datacenter: 'Corporate', cluster: 'WDMMSSQL-Cluster', mgmtip: '10.200.19.75', vmotionip: '10.200.87.75', iscsi_101_1_ip: '192.168.101.35', iscsi_101_2_ip: '192.168.101.85', iscsi_102_1_ip: '192.168.102.35', iscsi_102_2_ip: '192.168.102.85' }
+    - { esxi_hostname: 'pwdmesxsql07', datacenter: 'Corporate', cluster: 'WDMMSSQL-Cluster', mgmtip: '10.200.19.76', vmotionip: '10.200.87.76', iscsi_101_1_ip: '192.168.101.36', iscsi_101_2_ip: '192.168.101.86', iscsi_102_1_ip: '192.168.102.36', iscsi_102_2_ip: '192.168.102.86' }
+    #-ChasApps-Cluster Hosts
+    - { esxi_hostname: 'pchaesxhst01', datacenter: 'Chaska', cluster: 'ChasApps-Cluster', mgmtip: '10.200.229.16', vmotionip: '10.200.87.16', iscsi_101_1_ip: '192.168.101.16', iscsi_101_2_ip: '192.168.101.66', iscsi_102_1_ip: '192.168.102.16', iscsi_102_2_ip: '192.168.102.66' }
+    - { esxi_hostname: 'pchaesxhst02', datacenter: 'Chaska', cluster: 'ChasApps-Cluster', mgmtip: '10.200.229.17', vmotionip: '10.200.87.17', iscsi_101_1_ip: '192.168.101.17', iscsi_101_2_ip: '192.168.101.67', iscsi_102_1_ip: '192.168.102.17', iscsi_102_2_ip: '192.168.102.67' }
+    - { esxi_hostname: 'pchaesxhst03', datacenter: 'Chaska', cluster: 'ChasApps-Cluster', mgmtip: '10.200.229.18', vmotionip: '10.200.87.18', iscsi_101_1_ip: '192.168.101.18', iscsi_101_2_ip: '192.168.101.68', iscsi_102_1_ip: '192.168.102.18', iscsi_102_2_ip: '192.168.102.68' }
+    - { esxi_hostname: 'pchaesxhst04', datacenter: 'Chaska', cluster: 'ChasApps-Cluster', mgmtip: '10.200.229.19', vmotionip: '10.200.87.19', iscsi_101_1_ip: '192.168.101.19', iscsi_101_2_ip: '192.168.101.69', iscsi_102_1_ip: '192.168.102.19', iscsi_102_2_ip: '192.168.102.69' }
+    - { esxi_hostname: 'pchaesxhst05', datacenter: 'Chaska', cluster: 'ChasApps-Cluster', mgmtip: '10.200.229.20', vmotionip: '10.200.87.20', iscsi_101_1_ip: '192.168.101.20', iscsi_101_2_ip: '192.168.101.70', iscsi_102_1_ip: '192.168.102.20', iscsi_102_2_ip: '192.168.102.70' }
+    - { esxi_hostname: 'pchaesxhst06', datacenter: 'Chaska', cluster: 'ChasApps-Cluster', mgmtip: '10.200.229.21', vmotionip: '10.200.87.21', iscsi_101_1_ip: '192.168.101.21', iscsi_101_2_ip: '192.168.101.71', iscsi_102_1_ip: '192.168.102.21', iscsi_102_2_ip: '192.168.102.71' }
+    - { esxi_hostname: 'pchaesxhst07', datacenter: 'Chaska', cluster: 'ChasApps-Cluster', mgmtip: '10.200.229.22', vmotionip: '10.200.87.22', iscsi_101_1_ip: '192.168.101.22', iscsi_101_2_ip: '192.168.101.72', iscsi_102_1_ip: '192.168.102.22', iscsi_102_2_ip: '192.168.102.72' }
+dns1: 10.134.10.53
+dns2: 10.134.10.54      
+#  
+vcenter: "corpvcenter-v.hy-vee.net"
+vcenter_username: "administrator@vsphere.local"
+vcenter_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          64646664336464333862643833623431613964393061633862366563633939666539633331373463
+          6433633432656431303939336232396633636332383237300a626165396436396363643465643830
+          61376565373139653734303636636535316233646565656632616432616466323064326139663436
+          3735653061326538620a626430626139386631636464326139633266383261663765343837306530
+          3630
+esxi_username: 'root'
+esxi_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          64646664336464333862643833623431613964393061633862366563633939666539633331373463
+          6433633432656431303939336232396633636332383237300a626165396436396363643465643830
+          61376565373139653734303636636535316233646565656632616432616466323064326139663436
+          3735653061326538620a626430626139386631636464326139633266383261663765343837306530
+          3630
+domainname: "hy-vee.net"
+flashstack_vswitch: "vSwitch0"
+portgroup_mgmt: Management Network
+vmotion_dvswitch: "CORP-VMOTION-DS-001"
+chas_vmotion_dvswitch: "CHAS-VMOTION-DS-001"
+data_dvswitch: "CORP-DATA-DS-001"
+aci_dvswitch: "CORP-CAVE-DS-001"
+chas_aci_dvswitch: "CHAS-CAVE-DS-001"
+iscsi_dvswitch: "CORP-ISCSI-DS-001"  
+chas_iscsi_dvswitch: "CHAS-ISCSI-DS-001" 
+chas_mgmt_vlan: 229 
+chas_mgmt_gw: 10.200.229.254
+mgmt_vlan: 19
+mgmt_subnet: 255.255.255.0
+mgmt_gw: 10.200.19.254
+vmotion_vlan: 87
+vmotion_subnet: 255.255.255.0
+vmotion_mtu: 9000
+iscsi101_vlan: 101
+iscsi102_vlan: 102
+iscsi_subnet: 255.255.255.0
+iscsi_mtu: 1500
+iscsi101_1_pg: "iSCSI_101_1"
+iscsi101_2_pg: "iSCSI_101_2"
+iscsi102_1_pg: "iSCSI_102_1"
+iscsi102_2_pg: "iSCSI_102_2"

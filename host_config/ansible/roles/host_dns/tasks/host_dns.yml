@@ -1,0 +1,14 @@
+- name: Configure ESXi hostname and DNS servers
+  vmware_dns_config:
+    hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    username: "{{ esxi_username }}"
+    password: "{{ esxi_password }}"
+    change_hostname_to: "{{ item.esxi_hostname }}"
+    domainname: "{{ domainname }}"
+    dns_servers:
+        - "{{ dns1 }}"
+        - "{{ dns2 }}"
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost

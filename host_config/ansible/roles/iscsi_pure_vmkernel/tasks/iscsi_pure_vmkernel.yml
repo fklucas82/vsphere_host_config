@@ -1,0 +1,160 @@
+- name: Add iSCSI_101_1 vmkernel port - CORP
+  when: item.cluster == 'WDMApps-Cluster' or item.cluster == 'WDMMSSQL-Cluster'
+  vmware_vmkernel:
+    hostname: "{{ vcenter }}"
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    dvswitch_name: "{{ iscsi_dvswitch }}"
+    portgroup_name: "{{ iscsi101_1_pg }}"
+    mtu: "{{ iscsi_mtu }}"
+    network:
+      type: 'static'
+      ip_address: "{{ item.iscsi_101_1_ip }}"
+      subnet_mask: "{{ iscsi_subnet }}"
+      tcpip_stack: "default"
+    state: present
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost
+- name: Add iSCSI_101_2 vmkernel port - CORP
+  when: item.cluster == 'WDMApps-Cluster' or item.cluster == 'WDMMSSQL-Cluster'
+  vmware_vmkernel:
+    hostname: "{{ vcenter }}"
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    dvswitch_name: "{{ iscsi_dvswitch }}"
+    portgroup_name: "{{ iscsi101_2_pg }}"
+    mtu: "{{ iscsi_mtu }}"
+    network:
+      type: 'static'
+      ip_address: "{{ item.iscsi_101_2_ip }}"
+      subnet_mask: "{{ iscsi_subnet }}"
+      tcpip_stack: "default"
+    state: present
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost
+- name: Add iSCSI_102_1 vmkernel port - CORP
+  when: item.cluster == 'WDMApps-Cluster' or item.cluster == 'WDMMSSQL-Cluster'
+  vmware_vmkernel:
+    hostname: "{{ vcenter }}"
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    dvswitch_name: "{{ iscsi_dvswitch }}"
+    portgroup_name: "{{ iscsi102_1_pg }}"
+    mtu: "{{ iscsi_mtu }}"
+    network:
+      type: 'static'
+      ip_address: "{{ item.iscsi_102_1_ip }}"
+      subnet_mask: "{{ iscsi_subnet }}"
+      tcpip_stack: "default"
+    state: present
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost
+- name: Add iSCSI_102_2 vmkernel port - CORP
+  when: item.cluster == 'WDMApps-Cluster' or item.cluster == 'WDMMSSQL-Cluster'
+  vmware_vmkernel:
+    hostname: "{{ vcenter }}"
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    dvswitch_name: "{{ iscsi_dvswitch }}"
+    portgroup_name: "{{ iscsi102_2_pg }}"
+    mtu: "{{ iscsi_mtu }}"
+    network:
+      type: 'static'
+      ip_address: "{{ item.iscsi_102_2_ip }}"
+      subnet_mask: "{{ iscsi_subnet }}"
+      tcpip_stack: "default"
+    state: present
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost
+- name: Add iSCSI_101_1 vmkernel port - CHAS
+  when: item.cluster == 'ChasApps-Cluster'
+  vmware_vmkernel:
+    hostname: "{{ vcenter }}"
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    dvswitch_name: "{{ chas_iscsi_dvswitch }}"
+    portgroup_name: "{{ iscsi101_1_pg }}"
+    mtu: "{{ iscsi_mtu }}"
+    network:
+      type: 'static'
+      ip_address: "{{ item.iscsi_101_1_ip }}"
+      subnet_mask: "{{ iscsi_subnet }}"
+      tcpip_stack: "default"
+    state: present
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost
+- name: Add iSCSI_101_2 vmkernel port - CHAS
+  when: item.cluster == 'ChasApps-Cluster'
+  vmware_vmkernel:
+    hostname: "{{ vcenter }}"
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    dvswitch_name: "{{ chas_iscsi_dvswitch }}"
+    portgroup_name: "{{ iscsi101_2_pg }}"
+    mtu: "{{ iscsi_mtu }}"
+    network:
+      type: 'static'
+      ip_address: "{{ item.iscsi_101_2_ip }}"
+      subnet_mask: "{{ iscsi_subnet }}"
+      tcpip_stack: "default"
+    state: present
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost
+- name: Add iSCSI_102_1 vmkernel port - CHAS
+  when: item.cluster == 'ChasApps-Cluster'
+  vmware_vmkernel:
+    hostname: "{{ vcenter }}"
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    dvswitch_name: "{{ chas_iscsi_dvswitch }}"
+    portgroup_name: "{{ iscsi102_1_pg }}"
+    mtu: "{{ iscsi_mtu }}"
+    network:
+      type: 'static'
+      ip_address: "{{ item.iscsi_102_1_ip }}"
+      subnet_mask: "{{ iscsi_subnet }}"
+      tcpip_stack: "default"
+    state: present
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost
+- name: Add iSCSI_102_2 vmkernel port - CHAS
+  when: item.cluster == 'ChasApps-Cluster'
+  vmware_vmkernel:
+    hostname: "{{ vcenter }}"
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    dvswitch_name: "{{ chas_iscsi_dvswitch }}"
+    portgroup_name: "{{ iscsi102_2_pg }}"
+    mtu: "{{ iscsi_mtu }}"
+    network:
+      type: 'static'
+      ip_address: "{{ item.iscsi_102_2_ip }}"
+      subnet_mask: "{{ iscsi_subnet }}"
+      tcpip_stack: "default"
+    state: present
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost

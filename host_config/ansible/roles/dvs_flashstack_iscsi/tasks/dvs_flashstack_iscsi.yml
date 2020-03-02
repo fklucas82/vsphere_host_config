@@ -1,0 +1,54 @@
+- name: Add Host to iSCSI dVS - MSSQL
+  when: item.cluster == 'WDMApps-Cluster'
+  vmware_dvs_host:
+    hostname: "{{ vcenter }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    switch_name: "{{ iscsi_dvswitch }}"
+    vmnics:
+        - vmnic6
+        - vmnic5
+        - vmnic8
+        - vmnic7
+    state: present
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost
+- name: Add Host to iSCSI dVS - Apps
+  when: item.cluster == 'WDMMSSQL-Cluster'
+  vmware_dvs_host:
+    hostname: "{{ vcenter }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    switch_name: "{{ iscsi_dvswitch }}"
+    vmnics:
+        - vmnic6
+        - vmnic7
+        - vmnic8
+        - vmnic9
+    state: present
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost
+- name: Add Host to iSCSI dVS - ChasApps
+  when: item.cluster == 'ChasApps-Cluster'
+  vmware_dvs_host:
+    hostname: "{{ vcenter }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    switch_name: "{{ chas_iscsi_dvswitch }}"
+    vmnics:
+        - vmnic6
+        - vmnic7
+        - vmnic8
+        - vmnic9
+    state: present
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost

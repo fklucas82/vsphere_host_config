@@ -1,0 +1,2 @@
+- name: Set Host NTP Settings
+  import_tasks: host_ntp.yml

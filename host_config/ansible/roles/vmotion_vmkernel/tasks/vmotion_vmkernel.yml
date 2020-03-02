@@ -1,0 +1,40 @@
+- name: Add vMotion vmkernel port - Flashstack
+  when: item.cluster == 'WDMApps-Cluster' or item.cluster == 'WDMMSSQL-Cluster'
+  vmware_vmkernel:
+    hostname: "{{ vcenter }}"
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    dvswitch_name: "{{ vmotion_dvswitch }}"
+    portgroup_name: "{{ portgroup_mgmt }}"
+    mtu: "{{ vmotion_mtu }}"
+    network:
+      type: 'static'
+      ip_address: "{{ item.vmotionip }}"
+      subnet_mask: "{{ vmotion_subnet }}"
+      tcpip_stack: "default"
+    state: present
+    enable_vmotion: True
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost
+  - name: Add vMotion vmkernel port - Flashstack
+  when: item.cluster == 'ChasApps-Cluster'
+  vmware_vmkernel:
+    hostname: "{{ vcenter }}"
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    dvswitch_name: "{{ chas_vmotion_dvswitch }}"
+    portgroup_name: "{{ portgroup_mgmt }}"
+    mtu: "{{ vmotion_mtu }}"
+    network:
+      type: 'static'
+      ip_address: "{{ item.vmotionip }}"
+      subnet_mask: "{{ vmotion_subnet }}"
+      tcpip_stack: "default"
+    state: present
+    enable_vmotion: True
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost

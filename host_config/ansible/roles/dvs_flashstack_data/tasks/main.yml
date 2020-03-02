@@ -1,0 +1,2 @@
+- name: Add Data distributed switch
+  import_tasks: dvs_flashstack_data.yml

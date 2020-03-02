@@ -1,0 +1,15 @@
+- name: Add ESXi Host to vCenter
+  vmware_host:
+    hostname: "{{ vcenter }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    datacenter: "{{ item.datacenter }}"
+    cluster: "{{ item.cluster }}"
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    esxi_username: "{{ esxi_username }}"
+    esxi_password: "{{ esxi_password }}"
+    state: present
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost

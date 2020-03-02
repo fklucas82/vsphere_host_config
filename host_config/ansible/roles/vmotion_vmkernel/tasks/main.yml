@@ -1,0 +1,2 @@
+- name: Set vMotion VMKernel Adapter
+  import_tasks: vmotion_vmkernel.yml

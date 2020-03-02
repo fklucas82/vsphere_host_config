@@ -1,0 +1,49 @@
+---
+- hosts: all
+  gather_facts: false
+  roles:
+    - role: add_hosts
+      tags: ['hosts']
+    - role: host_dns
+      tags: ['dns']
+    - role: host_ntp
+      tags: ['ntp']
+    - role: vswitch_flashstack
+      tags: ['vswitch']
+    - role: mgmt_vmkernel
+      tags: ['mgmt']
+    - role: dvs_flashstack_vmotion
+      tags: ['dvs', 'vmotion']  
+    - role: dvs_flashstack_data
+      tags: ['dvs', 'data']
+    - role: dvs_flashstack_aci
+      tags: ['dvs', 'aci']
+    - role: dvs_flashstack_iscsi
+      tags: ['iscsi']
+    - role: iscsi_pure_vmkernel
+      tags: ['iscsi']    
+
+
+#--Completed
+#1 Add hosts to vCenter
+#2 Set DNS, NTP
+#3 Add vSwitches / Distributed Switches
+   #3a WDMApps-Cluster
+   #3b WDMMSSQL-Cluster 
+   #3c HXSQL
+   #3d HXOracleDS
+   #3e WDMDell-Cluster
+   #3f ChasApps-Cluster
+#4 Add VMKernel Ports
+  #4a iSCSI_101_1 - WDMApps-Cluster, WDMMSSQL-Cluster, ChasApps-Cluster
+  #4b iSCSI_101_2 - WDMApps-Cluster, WDMMSSQL-Cluster, ChasApps-Cluster
+  #4c iSCSI_102_1 - WDMApps-Cluster, WDMMSSQL-Cluster, ChasApps-Cluster
+  #4d iSCSI_102_2 - WDMApps-Cluster, WDMMSSQL-Cluster, ChasApps-Cluster
+  #4e vMotion - All
+  #4f iSCSI1 - CorpVMware-Cluster, ChasDR-Cluster, WDMDell-Cluster
+  #4g iSCSI2 - CorpVMware-Cluster, ChasDR-Cluster, WDMDell-Cluster
+#Completed
+#5 Add iSCSI Software Adapter
+  #5a Set Network Port Binding
+#6 Do Pure things
+#7 Do Pure best practices

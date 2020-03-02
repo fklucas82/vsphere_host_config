@@ -1,0 +1,44 @@
+- name: Add Management vmkernel port - CORP
+  when: item.cluster == 'WDMApps-Cluster' or item.cluster == 'WDMMSSQL-Cluster'
+  vmware_vmkernel:
+    hostname: "{{ vcenter }}"
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    vswitch_name: "{{ flashstack_vswitch }}"
+    portgroup_name: "{{ portgroup_mgmt }}"
+    mtu: 1500
+    network:
+      type: 'static'
+      ip_address: "{{ item.mgmtip }}"
+      subnet_mask: "{{ mgmt_subnet }}"
+      default_gateway: "{{ mgmt_gw }}"
+      tcpip_stack: "default"
+    state: present
+    enable_mgmt: True
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost
+- name: Add Management vmkernel port - CHAS
+  when: item.cluster == 'ChasApps-Cluster'
+  vmware_vmkernel:
+    hostname: "{{ vcenter }}"
+    username: '{{ vcenter_username }}'
+    password: '{{ vcenter_password }}'
+    esxi_hostname: "{{ item.esxi_hostname }}.{{ domainname }}"
+    vswitch_name: "{{ flashstack_vswitch }}"
+    portgroup_name: "{{ portgroup_mgmt }}"
+    mtu: 1500
+    network:
+      type: 'static'
+      ip_address: "{{ item.mgmtip }}"
+      subnet_mask: "{{ mgmt_subnet }}"
+      default_gateway: "{{ chas_mgmt_gw }}"
+      tcpip_stack: "default"
+    state: present
+    enable_mgmt: True
+    validate_certs: no
+  with_items:
+   - "{{ vars_hosts }}"
+  delegate_to: localhost
